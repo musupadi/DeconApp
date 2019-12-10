@@ -28,7 +28,9 @@ public class RequestFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        final String url="https://api.whatsapp.com/send?phone=6281290248899&text=Fitur%20Aplikasi%20%3A %20%0ADeadline%20%3A%20%0ABudget%0A";
+        fitur = view.findViewById(R.id.etFitur);
+        deadline = view.findViewById(R.id.etDeadline);
+        final String url="https://api.whatsapp.com/send?phone=6281290248899&text=Fitur%20Aplikasi:"+fitur.getText().toString()+"%20%3A %20%0ADeadline:"+fitur.getText().toString()+"%20%3A%20%0ABudget%0A";
         //String url = "https://api.whatsapp.com/send?phone=+6281290248899";
         submit=view.findViewById(R.id.btnPesan);
         submit.setOnClickListener(new View.OnClickListener() {
