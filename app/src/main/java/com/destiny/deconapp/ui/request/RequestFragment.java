@@ -14,10 +14,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.destiny.deconapp.Model.NumberTextWatcher;
 import com.destiny.deconapp.R;
 
 public class RequestFragment extends Fragment {
-    EditText fitur,deadline,budget;
+    EditText fitur,deadline,budget,kurs;
     Button submit;
     Spinner platform;
 
@@ -33,6 +34,9 @@ public class RequestFragment extends Fragment {
         deadline = view.findViewById(R.id.etDeadline);
         budget = view.findViewById(R.id.etBudget);
         platform = view.findViewById(R.id.spinnerPlatform);
+        kurs = view.findViewById(R.id.etKurs);
+
+        budget.addTextChangedListener(new NumberTextWatcher(budget));
         //String url = "https://api.whatsapp.com/send?phone=+6281290248899";
         submit=view.findViewById(R.id.btnPesan);
         submit.setOnClickListener(new View.OnClickListener() {
@@ -40,9 +44,8 @@ public class RequestFragment extends Fragment {
             public void onClick(View view) {
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse("https://api.whatsapp.com/send?phone=6281290248899&text=Platform%20%3A%20"+platform.getSelectedItem().toString()+"%0A" +
-//                        "Fitur%20Aplikasi%20%3A%20%0A"+fitur.getText().toString()+"" +
-                                "%0ADeadline%20%3A%20"+deadline.getText().toString()+"" +
-                                "%0ABudget%20%3A%20"+budget.getText().toString()+""+
+                                "Deadline%20%3A%20"+deadline.getText().toString()+"" +
+                                "%0ABudget%20%3A%20"+kurs.getText().toString()+"."+budget.getText().toString()+"%0A"+
                                 "Fitur%20Aplikasi%20%3A%20%0A"+fitur.getText().toString()
                         ));
                 startActivity(i);

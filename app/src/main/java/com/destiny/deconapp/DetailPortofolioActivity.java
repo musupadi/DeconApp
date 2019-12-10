@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,8 +17,9 @@ import com.bumptech.glide.Glide;
 
 public class DetailPortofolioActivity extends AppCompatActivity {
     TextView AppsName,AppsPlatform,AppsFeature,AppsStatus,AppsLink,AppsAbout1,AppsAbout2,AppsAbout3;
+    LinearLayout linkAdded;
     ImageView img1,img2,img3;
-    Button btnCheck;
+    ImageView btnCheck;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +29,7 @@ public class DetailPortofolioActivity extends AppCompatActivity {
         AppsFeature = findViewById(R.id.tvFeature);
         AppsStatus = findViewById(R.id.tvStatus);
         AppsLink = findViewById(R.id.tvLink);
+        linkAdded = findViewById(R.id.tvLinkAdded);
         img1 = findViewById(R.id.ivFoto1);
         img2 = findViewById(R.id.ivFoto2);
         img3 = findViewById(R.id.ivFoto3);
@@ -53,12 +57,20 @@ public class DetailPortofolioActivity extends AppCompatActivity {
         AppsFeature.setText(Feature);
         AppsStatus.setText(Status);
         if (Link.equals("-")){
-            AppsLink.setText(Link);
+            AppsLink.setText("");
+            linkAdded.setGravity(Gravity.TOP);
             btnCheck.setVisibility(View.GONE);
         }else{
+            linkAdded.setGravity(Gravity.CENTER);
             AppsLink.setVisibility(View.GONE);
         }
-
+        if (Platform.equals("Android")){
+            btnCheck.setImageResource(R.drawable.google_play_badge);
+        }else if(Platform.equals("Web")){
+            Toast.makeText(DetailPortofolioActivity.this, "WEB", Toast.LENGTH_SHORT).show();
+        }else if(Platform.equals("IOS")){
+            Toast.makeText(DetailPortofolioActivity.this, "IOS", Toast.LENGTH_SHORT).show();
+        }
         btnCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -98,6 +98,8 @@
                                 android:layout_weight="1"/>
                         </LinearLayout>
                         <LinearLayout
+                            android:gravity="center"
+                            android:id="@+id/tvLinkAdded"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
@@ -122,12 +124,11 @@
                                 android:layout_weight="1"
                                 android:paddingTop="10dp"
                                 android:paddingBottom="10dp">
-                                <Button
+                                <ImageView
                                     android:id="@+id/btnCheck"
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Check Aplikasi"
-                                    android:background="@drawable/button_red_rounded"
+                                    android:layout_height="80dp"
+                                    android:background="@drawable/google_play_badge"
                                     android:textColor="@color/colorWhite"/>
                                 <TextView
                                     android:textSize="15sp"

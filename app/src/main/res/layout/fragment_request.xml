@@ -69,22 +69,47 @@
                         android:id="@+id/etDeadline"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
-                <com.google.android.material.textfield.TextInputLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:focusable="true"
-                    android:focusableInTouchMode="true"
-                    android:textColorHint="@color/colorAccent"
-                    app:passwordToggleEnabled="true"
-                    android:layout_weight="1">
-                    <com.aldoapps.autoformatedittext.AutoFormatEditText
-                        android:ems="10"
+                    android:orientation="horizontal">
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Budget"
-                        android:id="@+id/etBudget"/>
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:textColorHint="@color/colorAccent"
+                        app:passwordToggleEnabled="true"
+                        android:layout_weight="5">
+                        <EditText
+                            android:ems="10"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Kurs"
+                            android:text="Rp"
+                            android:id="@+id/etKurs"
+                            android:inputType="number"/>
 
-                </com.google.android.material.textfield.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:textColorHint="@color/colorAccent"
+                        app:passwordToggleEnabled="true"
+                        android:layout_weight="1">
+                        <EditText
+                            android:ems="10"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Budget"
+                            android:id="@+id/etBudget"
+                            android:inputType="number"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
