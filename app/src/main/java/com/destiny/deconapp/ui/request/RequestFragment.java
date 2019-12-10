@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,9 +17,9 @@ import androidx.fragment.app.Fragment;
 import com.destiny.deconapp.R;
 
 public class RequestFragment extends Fragment {
-    EditText fitur,deadline;
+    EditText fitur,deadline,budget;
     Button submit;
-    private NotificationsViewModel notificationsViewModel;
+    Spinner platform;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -30,14 +31,20 @@ public class RequestFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         fitur = view.findViewById(R.id.etFitur);
         deadline = view.findViewById(R.id.etDeadline);
-        final String url="https://api.whatsapp.com/send?phone=6281290248899&text=Fitur%20Aplikasi:"+fitur.getText().toString()+"%20%3A %20%0ADeadline:"+fitur.getText().toString()+"%20%3A%20%0ABudget%0A";
+        budget = view.findViewById(R.id.etBudget);
+        platform = view.findViewById(R.id.spinnerPlatform);
         //String url = "https://api.whatsapp.com/send?phone=+6281290248899";
         submit=view.findViewById(R.id.btnPesan);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(Intent.ACTION_VIEW);
-                i.setData(Uri.parse(url));
+                i.setData(Uri.parse("https://api.whatsapp.com/send?phone=6281290248899&text=Platform%20%3A%20"+platform.getSelectedItem().toString()+"%0A" +
+//                        "Fitur%20Aplikasi%20%3A%20%0A"+fitur.getText().toString()+"" +
+                                "%0ADeadline%20%3A%20"+deadline.getText().toString()+"" +
+                                "%0ABudget%20%3A%20"+budget.getText().toString()+""+
+                                "Fitur%20Aplikasi%20%3A%20%0A"+fitur.getText().toString()
+                        ));
                 startActivity(i);
             }
         });

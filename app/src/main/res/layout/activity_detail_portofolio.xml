@@ -127,7 +127,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="Check Aplikasi"
-                                    android:background="@drawable/button_blue_rounded"
+                                    android:background="@drawable/button_red_rounded"
                                     android:textColor="@color/colorWhite"/>
                                 <TextView
                                     android:textSize="15sp"
