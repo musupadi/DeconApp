@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void changeActivity(){
-        Intent intent = new Intent(this,DashboardActivity.class);
+        Intent intent = new Intent(this,LoginActivity.class);
         startActivity(intent);
     }
 }
